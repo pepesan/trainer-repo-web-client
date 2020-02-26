@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {Trainer} from '../trainer';
 import {TrainerService} from '../trainer.service';
 import {Router} from '@angular/router';
@@ -11,8 +11,15 @@ import {Router} from '@angular/router';
 })
 export class TrainerAddComponent implements OnInit {
   profileForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
+    name: new FormControl('', [
+      // validaciones síncronas
+      Validators.required
+    ]),
+    email: new FormControl('', [
+      // validaciones síncronas
+      Validators.required,
+      Validators.email
+    ]),
     skills: new FormControl(''),
   });
   trainer: Trainer;

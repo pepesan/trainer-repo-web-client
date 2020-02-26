@@ -41,6 +41,9 @@ export class TrainerListComponent implements OnInit {
     this.trainerService.delete(item._id).subscribe(data => {
       this.getData();
     });
-    // this.router.navigate(['trainers/edit', item._id]);
+  }
+
+  goToEdit(item: TrainerWid) {
+    this.router.navigate(['trainers/edit', item._id]);
   }
 }

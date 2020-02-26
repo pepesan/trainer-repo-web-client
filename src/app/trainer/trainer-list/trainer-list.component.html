@@ -3,6 +3,12 @@
 <h2>Listado remoto</h2>
 <ul>
   <li *ngFor="let item of data| async; let i = index">
-    <p>{{i}} {{item._id}} {{item.name}} : {{item.email}}<span><button (click)="goToShow(item)">Show</button><button (click)="goToDelete(item)">Delete</button></span></p>
+    <p>{{i}} {{item._id}} {{item.name}} : {{item.email}}
+      <span>
+        <button (click)="goToShow(item)">Show</button>
+        <button (click)="goToEdit(item)">Edit</button>
+        <button (click)="goToDelete(item)">Delete</button>
+      </span>
+    </p>
   </li>
 </ul>

@@ -3,6 +3,7 @@ import {Trainer} from './trainer';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {TrainerWid} from './trainer_wid';
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +34,13 @@ export class TrainerService {
     return this.http.post<Observable<Trainer>>(this.url, trainer)
       .pipe(catchError(this.handleError('post', new Trainer())));
   }
-  getById(id: string = ''): Observable<Trainer> {
-    return this.http.get<Observable<Trainer>>(this.url + '/' + id)
+  getById(id: string = ''): Observable<TrainerWid> {
+    return this.http.get<Observable<TrainerWid>>(this.url + '/' + id)
       .pipe(catchError(this.handleError('get', new Trainer())));
+  }
+  updateById(id: string, trainer: TrainerWid): Observable<TrainerWid> {
+    return this.http.put<Observable<Trainer>>(this.url + '/' + id, trainer)
+      .pipe(catchError(this.handleError('post', new Trainer())));
   }
 
   delete(id: string) {

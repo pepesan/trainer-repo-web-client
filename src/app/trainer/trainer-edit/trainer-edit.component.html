@@ -2,7 +2,10 @@
 </button>
 <h2>Formuario de Alta</h2>
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-
+  <label>
+    ID:
+    <input type="text" formControlName="_id" [disableControl]="disable">
+  </label>
   <label>
     Name:
     <input type="text" formControlName="name">
