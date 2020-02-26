@@ -28,4 +28,9 @@ export class TrainerService {
       return [];
     };
   }
+
+  save(trainer: Trainer): Observable<Trainer> {
+    return this.http.post<Observable<Trainer>>(this.url, trainer)
+      .pipe(catchError(this.handleError('post', new Trainer())));
+  }
 }

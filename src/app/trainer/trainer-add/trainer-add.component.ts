@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import {Trainer} from '../trainer';
+import {TrainerService} from '../trainer.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-trainer-add',
@@ -15,7 +17,9 @@ export class TrainerAddComponent implements OnInit {
   });
   trainer: Trainer;
 
-  constructor() { }
+  constructor(
+    private trainerService: TrainerService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +29,11 @@ export class TrainerAddComponent implements OnInit {
     console.warn(this.profileForm.value);
     this.trainer = new Trainer(this.profileForm.value.name, this.profileForm.value.email);
     console.log(this.trainer);
+    const res = this.trainerService.save(this.trainer);
+    res.subscribe((data) => {
+      console.log('Navega a listado');
+      this.router.navigate(['trainers']);
+    });
   }
 
 }
