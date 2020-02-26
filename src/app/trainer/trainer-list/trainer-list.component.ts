@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Trainer} from '../trainer';
 import {TrainerService} from '../trainer.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Observable} from 'rxjs';
+import {TrainerWid} from '../trainer_wid';
 
 @Component({
   selector: 'app-trainer-list',
@@ -32,4 +33,14 @@ export class TrainerListComponent implements OnInit {
     this.router.navigate(['add-trainer']);
   }
 
+  goToShow(item: TrainerWid) {
+    this.router.navigate(['trainers', item._id]);
+  }
+
+  goToDelete(item: TrainerWid) {
+    this.trainerService.delete(item._id).subscribe(data => {
+      this.getData();
+    });
+    // this.router.navigate(['trainers/edit', item._id]);
+  }
 }

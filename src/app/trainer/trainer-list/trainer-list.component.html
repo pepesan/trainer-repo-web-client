@@ -1,13 +1,8 @@
 <h2>Listado Completo de Trainers</h2>
 <button (click)="goToAddForm()">Add Trainer</button>
-<ul>
-  <li *ngFor="let item of listado; let i = index">
-    {{i}} {{item.name}}
-  </li>
-</ul>
 <h2>Listado remoto</h2>
 <ul>
   <li *ngFor="let item of data| async; let i = index">
-    {{i}} {{item._id}} {{item.name}} : {{item.email}}
+    <p>{{i}} {{item._id}} {{item.name}} : {{item.email}}<span><button (click)="goToShow(item)">Show</button><button (click)="goToDelete(item)">Delete</button></span></p>
   </li>
 </ul>

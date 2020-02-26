@@ -33,4 +33,13 @@ export class TrainerService {
     return this.http.post<Observable<Trainer>>(this.url, trainer)
       .pipe(catchError(this.handleError('post', new Trainer())));
   }
+  getById(id: string = ''): Observable<Trainer> {
+    return this.http.get<Observable<Trainer>>(this.url + '/' + id)
+      .pipe(catchError(this.handleError('get', new Trainer())));
+  }
+
+  delete(id: string) {
+    return this.http.delete<Observable<Trainer>>(this.url + '/' + id)
+      .pipe(catchError(this.handleError('delete', new Trainer())));
+  }
 }

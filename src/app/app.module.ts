@@ -10,6 +10,7 @@ import {TrainerAddComponent} from './trainer/trainer-add/trainer-add.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {TrainerEditComponent} from './trainer/trainer-edit/trainer-edit.component';
 
 const appRoutes: Routes = [
   { path: '',
@@ -34,6 +35,9 @@ const appRoutes: Routes = [
   {
     path: 'trainers/:id',
     component: TrainerDetailComponent },
+  {
+    path: 'trainers/edit/:id',
+    component: TrainerEditComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
