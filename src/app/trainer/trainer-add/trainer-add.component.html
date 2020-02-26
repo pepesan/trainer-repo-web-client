@@ -1,1 +1,18 @@
-<p>trainer-add works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Email:
+    <input type="text" formControlName="email">
+  </label>
+  <label>
+    Skills:
+    <input type="text" formControlName="skills">
+  </label>
+  <input type="submit" value="Enviar"/>
+
+</form>

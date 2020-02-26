@@ -5,3 +5,9 @@
     {{i}} {{item.name}}
   </li>
 </ul>
+<h2>Listado remoto</h2>
+<ul>
+  <li *ngFor="let item of data| async; let i = index">
+    {{i}} {{item._id}} {{item.name}} : {{item.email}}
+  </li>
+</ul>

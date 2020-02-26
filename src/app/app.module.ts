@@ -8,6 +8,9 @@ import {TrainerListComponent} from './trainer/trainer-list/trainer-list.componen
 import {TrainerDetailComponent} from './trainer/trainer-detail/trainer-detail.component';
 import {TrainerAddComponent} from './trainer/trainer-add/trainer-add.component';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 const appRoutes: Routes = [
   { path: '',
     redirectTo: '/home',
@@ -41,6 +44,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     TrainerModule,
     RouterModule.forRoot(
       appRoutes,
