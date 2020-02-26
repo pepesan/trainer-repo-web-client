@@ -9,7 +9,6 @@ import {TrainerDetailComponent} from './trainer/trainer-detail/trainer-detail.co
 import {TrainerAddComponent} from './trainer/trainer-add/trainer-add.component';
 import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
-  { path: '**', component: PageNotFoundComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -27,11 +26,12 @@ const appRoutes: Routes = [
   {
     path: 'add-trainer',
     component: TrainerAddComponent,
-    data: { title: 'Trainer List' }
+    data: { title: 'Add Trainer' }
   },
   {
     path: 'trainers/:id',
     component: TrainerDetailComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
   declarations: [

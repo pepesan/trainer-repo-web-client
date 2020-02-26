@@ -1,5 +1,5 @@
 <h2>Listado Completo de Trainers</h2>
-<button>Add Trainer</button>
+<button (click)="goToAddForm()">Add Trainer</button>
 <ul>
   <li *ngFor="let item of listado; let i = index">
     {{i}} {{item.name}}
